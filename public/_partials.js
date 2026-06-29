@@ -43,7 +43,7 @@ document.write(`
 </header>
 `);
 
-window.addEventListener("DOMContentLoaded",()=>{
+window.addEventListener("DOMContentLoaded", () => {
   const footer = document.createElement("footer");
   footer.className = "site-footer";
   footer.innerHTML = `
@@ -99,15 +99,16 @@ window.addEventListener("DOMContentLoaded",()=>{
   wa.href = "https://wa.me/919876543210";
   wa.target = "_blank";
   wa.className = "wa-float";
-  wa.setAttribute("aria-label","WhatsApp");
+  wa.setAttribute("aria-label", "WhatsApp");
   wa.innerHTML = "💬";
   document.body.appendChild(wa);
 
   // re-apply translations after footer mount
-  if(window.applyLangCurrent) window.applyLangCurrent();
+  if (window.applyLangCurrent) window.applyLangCurrent();
   const lang = localStorage.getItem("vet-lang") || "en";
-  document.querySelectorAll("[data-i18n]").forEach(el=>{
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
     const k = el.getAttribute("data-i18n");
-    if(window.translations && window.translations[lang]?.[k]) el.innerHTML = window.translations[lang][k];
+    if (window.translations && window.translations[lang]?.[k])
+      el.innerHTML = window.translations[lang][k];
   });
 });
